@@ -1,0 +1,105 @@
+root {
+    display: block;
+}
+
+a {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: #116be0;
+    text-decoration: none;
+}
+
+a:hover {
+    background: #66ff66
+}
+
+a:visited {
+    color: #e70f0f;
+}
+
+a:active {
+    color: #050504;
+}
+
+a.lien:link {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: #0000FF;
+    text-decoration: none;
+}
+
+a.lien:hover {
+    color: #FF00FF;
+}
+
+a.lien:visited {
+    color: teal;
+}
+
+a.lien:active {
+    color: #3511d3;
+}
+
+.banner {
+    background-color: #cc0033;
+    height: 80px;
+}
+
+.logo {
+    float: left;
+    vertical-align: middle;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
+.title {
+    font-family: serif;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 20px;
+    vertical-align: middle;
+    color: #0a0ae4;
+}
+
+.menu {
+    background-color: #9999ff;
+}
+
+.message {
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-color: orange;
+    border-bottom-color: orange;
+    border-left-color: orange;
+    border-right-color: orange;
+}
+
+.content {
+    font-family: cursive;
+    font-size: 12px;
+}
+
+#catalog thead th {
+    background-color: #69c;
+}
+
+#catalog tr:nth-child(even) {
+    background-color: rgb(176, 176, 243);
+}
+
+#catalog tr:nth-child(odd) {
+    background-color: rgb(240, 235, 191);
+}
+
+#foot {
+    background-color: rgb(233, 232, 232);
+    text-align: center;
+    clear: both;
+    position: relative;
+    height: 20px;
+    margin-top: -20px;
+}
