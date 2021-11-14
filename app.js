@@ -1,11 +1,27 @@
 const express = require("express"); //Requiring express
 const app = express(); //Creating app
 
+app.use(express.static('public')); //File for static pages
+app.set('view engine', 'ejs'); //Setting up EJS
+
 //Sending static files as an http response to http GET /
-app.use(express.static('public'));
-app.set('view engine', 'ejs');
 app.get("/", (req, res) => {
-    res.render('index');
+    res.render('index'); //Used the EJS file instead of the html 
+});
+
+//Render the contacts file in the /contacts route
+app.get("/contacts", (req, res) => {
+    res.render('contacts');
+});
+
+//Render the contacts file in the /api/register route
+app.get("/api/register", (req, res) => {
+    res.render('register');
+});
+
+//Render the contacts file in the /api/login route
+app.get("/api/login", (req, res) => {
+    res.render('login');
 });
 
 //Make the app listen on port
