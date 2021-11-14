@@ -1,6 +1,10 @@
 const express = require("express"); //Requiring express
 const app = express(); //Creating app
 
+//pass requests to the router middleware 
+const router = require(__dirname + '/routes/apis');
+app.use(router);
+
 app.use(express.static('public')); //File for static pages
 app.set('view engine', 'ejs'); //Setting up EJS
 
