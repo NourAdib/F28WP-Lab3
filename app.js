@@ -5,7 +5,7 @@ const app = express(); //Creating app
 const router = require(__dirname + '/routes/apis');
 app.use(router);
 
-app.use(express.static('public')); //File for static pages
+app.use(express.static(__dirname + '/public')); //Folder for static pages
 app.set('view engine', 'ejs'); //Setting up EJS
 
 //Sending static files as an http response to http GET /
@@ -16,16 +16,6 @@ app.get("/", (req, res) => {
 //Render the contacts file in the /contacts route
 app.get("/contacts", (req, res) => {
     res.render('contacts');
-});
-
-//Render the contacts file in the /api/register route
-app.get("/api/register", (req, res) => {
-    res.render('register');
-});
-
-//Render the contacts file in the /api/login route
-app.get("/api/login", (req, res) => {
-    res.render('login');
 });
 
 //Make the app listen on port

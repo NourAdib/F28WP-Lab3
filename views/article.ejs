@@ -1,0 +1,25 @@
+<%- include('header'); -%>
+
+    <tr>
+        <th scope="row">
+            <%= product.name %>
+        </th>
+        <td>
+            <%= product.category %>
+        </td>
+
+        <td>
+            <%= product.price %>AED
+        </td>
+        <td>
+            <%= product.vat %>AED
+        </td>
+        <td>
+            <%= product.stock %>
+        </td>
+        <td>
+            <%= product.critical_stock %>AED
+        </td>
+    </tr>
+
+    <%- include('footer'); -%>

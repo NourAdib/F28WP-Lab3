@@ -19,7 +19,7 @@ const searchIDService = function(reference, callback) {
         if (rows.length == 0) {
             console.log("Unkown product!");
             let product = null;
-            calback(null, product);
+            callback(null, product);
         } else {
             //rreturn the retrieved product 
             callback(null, rows[0]);
