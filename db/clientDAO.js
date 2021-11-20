@@ -81,9 +81,22 @@ function createClient(client, callback) {
         }
     });
 }
+
+function findClientByNumber(clientNumber, callback) {
+    const selectClient = (`SELECT * from client where num_client like '${clientNumber}';`);
+    database.getResult(selectClient, function(err, rows) {
+        if (!err) {
+            callback(null, rows);
+        } else {
+            console.log(err);
+        }
+    });
+}
+
 module.exports = {
     find,
     findByUsername,
     createClient,
     findByNumclient,
+    findClientByNumber,
 };

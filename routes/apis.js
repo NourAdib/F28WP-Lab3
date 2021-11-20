@@ -24,6 +24,8 @@ router.get('/api/article/:id', (req, res) => {
     });
 });
 
+router.get('/api/login/:username', clientController.getClient);
+
 //routes for dynamic processing of clients 
 //----------------------------------------------- 
 //route for registration 
@@ -36,6 +38,8 @@ router.post('/api/login', clientController.loginControl);
 router.post('/api/register', clientController.registerControl);
 //route for login 
 router.post('/api/login', clientController.loginControl);
+
+
 
 //export router
 module.exports = router;

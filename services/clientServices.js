@@ -92,8 +92,24 @@ const searchService = function(callback) { //to be completed
 };
 
 const searchNumclientService = function(num_client, callback) {
-    //to be completed
+    clientDAO.findClientByNumber(num_client, function(err, rows) {
+        if (err) {
+            throw err;
+        } else {
+            callback(false, rows);
+        }
+    });
 };
+
+const searchUsernameService = function(username, callback) {
+    clientDAO.findByUsername(username, function(err, rows) {
+        if (err) {
+            throw err;
+        } else {
+            callback(false, rows);
+        }
+    });
+}
 
 const deleteService = function(num_client, callback) {
     //to be completed
@@ -104,5 +120,6 @@ module.exports = {
     registerService,
     searchNumclientService,
     searchService,
-    deleteService
+    deleteService,
+    searchUsernameService,
 };

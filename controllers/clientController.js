@@ -24,7 +24,7 @@ const loginControl = (request, response) => {
         response.render('failedLogin', { username: `Login failed, please try again` });
     } else {
         if (request.session && request.session.user) {
-            response.render('postLogin', { username: `Hi, ${username}!` });
+            response.render('postLogin', { username: username });
         } else {
             clientServices.loginService(username, password, function(err, dberr, client) {
                 console.log("Client from login service :" + JSON.stringify(client));
@@ -36,7 +36,7 @@ const loginControl = (request, response) => {
                     request.session.user = username;
                     request.session.num_client = client[0].num_client;
                     request.session.admin = false;
-                    response.render('postLogin', { username: `Hi, ${username}!` });
+                    response.render('postLogin', { username: username });
                 }
             });
         }
@@ -83,18 +83,36 @@ const getClients = (request, response) => {
     });
 };
 
-const getClientByNumclient = (request, response) => {
+const getClient = (request, response) => {
     const clientServices = require('../services/clientServices');
-    let num_client = request.params.num_client;
-    clientServices.searchNumclientService(num_client, function(err, rows) {
-        response.json(rows);
-        response.end();
+    let username = request.params.username;
+    let num_client;
+
+    clientServices.searchUsernameService(username, function(err, rows) {
+        num_client = rows[0].num_client
+        clientServices.searchNumclientService(num_client, function(err, rows) {
+            console.log(rows)
+            response.render('clientDetails', {
+                username: username,
+                clientNumber: rows[0].num_client,
+                society: rows[0].society,
+                contact: rows[0].contact,
+                address: rows[0].addres,
+                zipcode: rows[0].zipcode,
+                city: rows[0].city,
+                phone: rows[0].phone,
+                fax: rows[0].fax,
+                maxOutstanding: rows[0].max_outstanding,
+            });
+            //let client = new Client(rows[0].num_client, rows[0].society, rows[0].contact, rows[0].addres, rows[0].zipcode, rows[0].city, rows[0].phone, rows[0].fax, rows[0].max_outstanding);
+        });
     });
+
 };
 
 module.exports = {
     loginControl,
     registerControl,
     getClients,
-    getClientByNumclient
+    getClient
 };
