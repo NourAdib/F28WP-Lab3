@@ -1,10 +1,17 @@
 <%- include('header'); -%>
 
     <div class='content'>
-        <form action="/api/login" method="GET">
-            <input type="email" name="email" placeholder="Email" required autofocus>
+        <form action="/api/login" method="post">
+            <label for="username">Username:</label>
+            <br>
+            <input type="text" name="username" placeholder="Username" required autofocus>
+            <br>
+            <label for="password">Password:</label>
+            <br>
             <input type="password" name="password" placeholder="Password" required>
+            <br>
             <button type="submit">Login</button>
+            <br>
         </form>
     </div>
 

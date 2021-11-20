@@ -1,5 +1,9 @@
 const express = require("express"); //Requiring express
 const app = express(); //Creating app
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+const session = require('express-session');
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 } }))
 
 //pass requests to the router middleware 
 const router = require(__dirname + '/routes/apis');
@@ -16,6 +20,16 @@ app.get("/", (req, res) => {
 //Render the contacts file in the /contacts route
 app.get("/contacts", (req, res) => {
     res.render('contacts');
+});
+
+//Render the contacts file in the /contacts route
+app.get("/login", (req, res) => {
+    res.render('login');
+});
+
+//Render the contacts file in the /contacts route
+app.get("/register", (req, res) => {
+    res.render('register');
 });
 
 //Make the app listen on port
