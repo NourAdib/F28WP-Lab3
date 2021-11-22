@@ -58,7 +58,6 @@ const registerControl = (request, response) => {
     let fax = request.body.fax;
     let max_outstanding = request.body.max_outstanding;
     let client = new Client(username, password, 0, society, contact, address, zipcode, city, phone, fax, max_outstanding);
-
     clientServices.registerService(client, function(err, exists, insertedID) {
         console.log("User from register service :" + insertedID);
         if (exists) {
@@ -91,7 +90,7 @@ const getClient = (request, response) => {
     clientServices.searchUsernameService(username, function(err, rows) {
         num_client = rows[0].num_client
         clientServices.searchNumclientService(num_client, function(err, rows) {
-            console.log(rows)
+            console.log(rows[0])
             response.render('clientDetails', {
                 username: username,
                 clientNumber: rows[0].num_client,

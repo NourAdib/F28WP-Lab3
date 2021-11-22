@@ -22,12 +22,12 @@ app.get("/contacts", (req, res) => {
     res.render('contacts');
 });
 
-//Render the contacts file in the /contacts route
+//Render the contacts file in the /login route
 app.get("/login", (req, res) => {
     res.render('login');
 });
 
-//Render the contacts file in the /contacts route
+//Render the contacts file in the /register route
 app.get("/register", (req, res) => {
     res.render('register');
 });
