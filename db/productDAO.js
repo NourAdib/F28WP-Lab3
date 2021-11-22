@@ -1,9 +1,13 @@
 const database = require('./dbQuery');
 
+//Make the query to get all the prodcuts from the database
+//and return the result to through the callback method
 function findAll(callback) {
+    //The query
     const selectProducts = "SELECT * from article; ";
     database.getResult(selectProducts, function(err, rows) {
         if (!err) {
+            //Return the data if no errors occure
             callback(null, rows);
         } else {
             console.log(err);
@@ -12,10 +16,14 @@ function findAll(callback) {
     });
 }
 
+//Make the query to get a specific product from the database
+//and return the result to through the callback method
 function findByID(reference, callback) {
+    //The query
     const selectProducts = `SELECT * from article where reference like '${reference}';`;
     database.getResult(selectProducts, function(err, rows) {
         if (!err) {
+            //Return the data if no errors occure
             callback(null, rows);
         } else {
             console.log(err);

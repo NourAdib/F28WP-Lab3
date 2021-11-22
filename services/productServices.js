@@ -1,4 +1,6 @@
 const productDAO = require('../db/productDAO');
+
+//Search the DB for all the products
 const searchService = function(callback) {
     productDAO.findAll(function(err, rows) {
         if (err) {
@@ -7,10 +9,13 @@ const searchService = function(callback) {
         if (rows.length == 0) {
             console.log("No products!");
         } else {
+            //Call the callback method and pass it the data returned
             callback(null, rows);
         }
     });
 };
+
+//Search the DB for a specific product
 const searchIDService = function(reference, callback) {
     productDAO.findByID(reference, function(err, rows) {
         if (err) {
@@ -21,7 +26,7 @@ const searchIDService = function(reference, callback) {
             let product = null;
             callback(null, product);
         } else {
-            //rreturn the retrieved product 
+            //Call the callback method and pass it the data returned 
             callback(null, rows[0]);
         }
     });
