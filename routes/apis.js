@@ -1,7 +1,6 @@
 const express = require('express');
 const productController = require('../controllers/productController');
-const clientController = require('../controllers/clientController.js')
-const catalogServices = require('../services/productServices');
+const clientController = require('../controllers/clientController.js');
 
 //define a router and create routes
 const router = express.Router();
